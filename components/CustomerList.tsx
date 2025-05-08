@@ -2,7 +2,7 @@
 import React from 'react';
 import { FlatList, Text, RefreshControl } from 'react-native';
 import { Customer } from '../database/models/Customer';
-import { CustomerCard } from '../components/CustomerCard';
+import { CustomerCard } from './CustomerCard';
 
 export function CustomerList({
   data,

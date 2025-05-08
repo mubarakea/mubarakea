@@ -49,7 +49,7 @@ const RequestItemScreen = () => {
       behavior={Platform.select({ ios: 'padding', android: undefined })}
     >
       <Image
-        source={require('../../assets/icons/request.png')}
+        source={require('../assets/icons/request.png')}
         style={styles.icon}
       />
       <Text style={styles.title}>Request New Item</Text>

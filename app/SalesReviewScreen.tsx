@@ -1,5 +1,5 @@
 import React from 'react';
-import { SaleRepository } from '../../database/repositories/SaleRepository'; // Adjust the import path as necessary
+import { SaleRepository } from '../database/repositories/SaleRepository'; // Adjust the import path as necessary
 import {
   View,
   Text,

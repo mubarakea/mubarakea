@@ -1,19 +1,20 @@
+import { router } from 'expo-router';
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ActivityIndicator, Image } from 'react-native';
 
-const PullFromServerScreen = ({ navigation }: any) => {
+const PullFromServer = ({ navigation }: any) => {
   const [loading, setLoading] = useState(false);
 
   const handlePullData = async () => {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-      navigation.replace('Dashboard');
+      router.replace('/Dashboard');
     }, 2000); // Simulate API delay
   };
 
   const handleLogout = () => {
-    navigation.replace('Login');
+    router.replace('Login');
   };
 
   return (
@@ -26,7 +27,7 @@ const PullFromServerScreen = ({ navigation }: any) => {
           <ActivityIndicator size="large" color="#004e92" />
         ) : (
           <Image
-            source={require('../../assets/images/cloudsync.png')} // Replace with your icon
+            source={require('../assets/images/cloudsync.png')} // Replace with your icon
             style={styles.image}
           />
         )}
@@ -46,7 +47,7 @@ const PullFromServerScreen = ({ navigation }: any) => {
   );
 };
 
-export default PullFromServerScreen;
+export default PullFromServer;
 
 const styles = StyleSheet.create({
   container: {

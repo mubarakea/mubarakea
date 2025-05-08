@@ -42,7 +42,7 @@ const RouteCustomerList = ({ route }: any) => {
           value={search}
           onChangeText={setSearch}
         />
-        <Image source={require('../../assets/icons/filter.png')} style={styles.filterIcon} />
+        <Image source={require('../assets/icons/filter.png')} style={styles.filterIcon} />
       </View>
 
       {/* Customer List */}

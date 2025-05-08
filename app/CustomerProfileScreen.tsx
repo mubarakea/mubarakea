@@ -13,9 +13,9 @@ import {
 } from 'react-native';
 import { RouteProp, useRoute } from '@react-navigation/native';
 
-import { initializeDatabase } from '../../database';
-import { CustomerRepository } from '../../database/repositories/CustomerRepository';
-import { Customer } from '../../database/models/Customer';
+import { initializeDatabase } from '../database';
+import { CustomerRepository } from '../database/repositories/CustomerRepository';
+import { Customer } from '../database/models/Customer';
 
 const CustomerProfileScreen = () => {
   const route = useRoute<RouteProp<{ params: { customerId: string } }, 'params'>>();
@@ -50,12 +50,12 @@ const CustomerProfileScreen = () => {
   };
 
   const actions = [
-    { label: 'Sales', icon: require('../../assets/icons/sales.png') },
-    { label: 'Pay Due', icon: require('../../assets/icons/pay.png') },
-    { label: 'Sales Return', icon: require('../../assets/icons/return.png') },
-    { label: 'Payment Review', icon: require('../../assets/icons/payment-review.png') },
-    { label: 'Sales Review', icon: require('../../assets/icons/sales-review.png') },
-    { label: 'Sales Return Review', icon: require('../../assets/icons/return-review.png') },
+    { label: 'Sales', icon: require('../assets/icons/sales.png') },
+    { label: 'Pay Due', icon: require('../assets/icons/pay.png') },
+    { label: 'Sales Return', icon: require('../assets/icons/return.png') },
+    { label: 'Payment Review', icon: require('../assets/icons/payment-review.png') },
+    { label: 'Sales Review', icon: require('../assets/icons/sales-review.png') },
+    { label: 'Sales Return Review', icon: require('../assets/icons/return-review.png') },
   ];
 
   if (loading) {

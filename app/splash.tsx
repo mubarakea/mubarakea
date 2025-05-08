@@ -1,20 +1,40 @@
-import { useRouter } from 'expo-router';
-import { View, Text, ActivityIndicator } from 'react-native';
-import { useEffect } from 'react';
+// app/splash.tsx
+import React, { useEffect } from 'react';
+import { View, Image, StyleSheet, StatusBar, Dimensions } from 'react-native';
+import { router } from 'expo-router';
 
-export default function Splash() {
-  const router = useRouter();
+const { width: SCREEN_WIDTH } = Dimensions.get('window');
 
+export default function SplashScreen() {
   useEffect(() => {
-    setTimeout(() => {
-      router.replace('/login');
-    }, 2000); // simulate loading
+    const timer = setTimeout(() => {
+      router.replace('/Login'); // use router from expo-router
+    }, 2000);
+    return () => clearTimeout(timer);
   }, []);
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <ActivityIndicator size="large" />
-      <Text>Loading App...</Text>
+    <View style={styles.container}>
+      <StatusBar barStyle="dark-content" backgroundColor="#fff" />
+      <Image
+        source={require('../assets/images/splash.png')}
+        style={styles.image}
+        resizeMode="contain"
+      />
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  image: {
+    width: SCREEN_WIDTH * 0.6,
+    height: undefined,
+    aspectRatio: 1,
+  },
+});

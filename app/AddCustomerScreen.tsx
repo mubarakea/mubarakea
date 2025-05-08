@@ -16,11 +16,11 @@ import {
 import { Picker } from '@react-native-picker/picker';
 import { useNavigation } from '@react-navigation/native';
 
-import { initializeDatabase } from '../../database';
-import { CustomerRepository } from '../../database/repositories/CustomerRepository';
-import { Customer } from '../../database/models/Customer';
+import { initializeDatabase } from '../database';
+import { CustomerRepository } from '../database/repositories/CustomerRepository';
+import { Customer } from '../database/models/Customer';
 import { NavigationProp } from '@react-navigation/native';
-import { RootStackParamList } from '../../navigation/types';
+import { RootStackParamList } from '../navigation/types';
 
 const AddCustomerScreen = () => {
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();

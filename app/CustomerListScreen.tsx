@@ -13,11 +13,11 @@ import {
   Alert,
 } from 'react-native';
 import { useNavigation, useIsFocused, NavigationProp } from '@react-navigation/native';
-import { RootStackParamList } from '../../navigation/types';
+import { RootStackParamList } from '../navigation/types';
 
-import { initializeDatabase } from '../../database';
-import { CustomerRepository } from '../../database/repositories/CustomerRepository';
-import { Customer } from '../../database/models/Customer';
+import { initializeDatabase } from '../database';
+import { CustomerRepository } from '../database/repositories/CustomerRepository';
+import { Customer } from '../database/models/Customer';
 
 const CustomerListScreen = () => {
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
@@ -92,7 +92,7 @@ const CustomerListScreen = () => {
           onChangeText={setSearch}
         />
         <Image
-          source={require('../../assets/icons/filter.png')}
+          source={require('../assets/icons/filter.png')}
           style={styles.filterIcon}
         />
       </View>

@@ -7,7 +7,7 @@ import {
   FlatList,
   TouchableOpacity,
 } from 'react-native';
-import ItemAddModal from '../SalesEntry/ItemAddModal';
+import ItemAddModal from './ItemAddModal';
 
 const dummyItems = [
   { id: 1, name: 'Water Bottle 1L', price: 1.5 },

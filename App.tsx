@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { View, StatusBar, StyleSheet, Platform, Alert } from 'react-native';
-import AppNavigator from './src/navigation/AppNavigator';
-import { initializeDatabase } from './src/database';
-import { seedCustomers } from './src/database/seeds/seed';
+import { initializeDatabase } from './database';
+import { seedCustomers } from './database/seeds/seed';
 import * as SplashScreen from 'expo-splash-screen';
 
 SplashScreen.preventAutoHideAsync(); // Optional: Keep splash visible until setup completes
@@ -26,9 +25,6 @@ const App = () => {
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor="#ffffff" barStyle="dark-content" />
-      <NavigationContainer>
-        <AppNavigator />
-      </NavigationContainer>
     </View>
   );
 };

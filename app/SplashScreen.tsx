@@ -1,3 +1,4 @@
+import { router } from 'expo-router';
 import React, { useEffect } from 'react';
 import {
   View,
@@ -12,7 +13,7 @@ const { width: SCREEN_WIDTH } = Dimensions.get('window');
 const SplashScreen = ({ navigation }: any) => {
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigation.replace('Login');
+      router.replace('Login');
     }, 2000);
     return () => clearTimeout(timer);
   }, [navigation]);
@@ -22,7 +23,7 @@ const SplashScreen = ({ navigation }: any) => {
       <StatusBar barStyle="dark-content" backgroundColor="#fff" />
 
       <Image
-        source={require('../../assets/images/splash.png')}
+        source={require('../assets/images/splash.png')}
         style={styles.image}
         resizeMode="contain"
       />

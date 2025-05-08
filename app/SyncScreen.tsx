@@ -34,7 +34,7 @@ const SyncScreen = ({ navigation }: any) => {
   return (
     <View style={styles.container}>
       <Image
-        source={require('../../assets/icons/sync.png')}
+        source={require('../assets/icons/sync.png')}
         style={styles.icon}
       />
       <Text style={styles.title}>Sync Data</Text>

@@ -4,13 +4,9 @@ const DB_NAME = 'VadproSales.db';
 
 export class Database {
   private static instance: Database;
-  private db: SQLiteDatabase;
+  private db: SQLiteDatabase | undefined;
 
-  private constructor() {
-    this.db = openDatabaseSync(DB_NAME);
-    this.enableForeignKeys();
-    this.runMigrations();
-  }
+  private constructor() {}
 
   static getInstance(): Database {
     if (!Database.instance) {
@@ -19,8 +15,23 @@ export class Database {
     return Database.instance;
   }
 
+  async init(): Promise<void> {
+    if (!this.db) {
+      const db = openDatabaseSync(DB_NAME);
+
+      if (!db || typeof db.transaction !== 'function') {
+        throw new Error('Failed to initialize SQLite database.');
+      }
+
+      this.db = db;
+
+      this.enableForeignKeys();
+      this.runMigrations();
+    }
+  }
+
   private enableForeignKeys(): void {
-    this.db.transaction((tx) => {
+    this.db?.transaction((tx) => {
       tx.executeSql('PRAGMA foreign_keys = ON;');
     });
   }
@@ -31,7 +42,7 @@ export class Database {
       require('./migrations/2_create_sales_table').up,
     ];
 
-    this.db.transaction((tx) => {
+    this.db?.transaction((tx) => {
       for (const sql of migrations) {
         tx.executeSql(sql);
       }
@@ -39,6 +50,9 @@ export class Database {
   }
 
   getConnection(): SQLiteDatabase {
+    if (!this.db) {
+      throw new Error('Database not initialized. Call init() first.');
+    }
     return this.db;
   }
 }
